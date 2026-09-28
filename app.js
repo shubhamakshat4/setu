@@ -9,11 +9,11 @@
 const CONFIG = {
   // TODO(user): paste your Apps Script web-app URL here (see SETUP.md, step 3).
   // While this still contains "PASTE_", the form runs in DEMO MODE and saves nothing.
-  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbw_qhYtOYMJ4hYSnnWW20cQpPGVEQDCzjiMpqQcJRyRS9GkQ8qu11hSHa40gnRFWAZ4Gw/exec',
+  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwYso2kL3gX3Y4yZSKrztJc5eSuVhxycewE8TXivOvAvXa5C_eBLZ2usBUJU3fDY7IgbQ/exec',
 
   // TODO(user): the public address of this page, e.g. 'https://ssu-setu.netlify.app/'
   // Leave empty ('') to use whatever address the page is opened from.
-  PAGE_URL: '',
+  PAGE_URL: 'https://setu-omega-nine.vercel.app/',
 
   // TODO(user): confirm the programme's contact address.
   CONTACT_EMAIL: 'akshat.s@srisriuniversity.edu.in',
