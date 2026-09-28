@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Setu — Be the bridge between classroom and career</title>
+  <meta name="description" content="Setu is Sri Sri University's industry mentorship initiative. Guide an SSU student — about one hour a month.">
+  <meta name="theme-color" content="#1B2A4A">
+
+  <!-- ============ Link previews (WhatsApp, LinkedIn, X/Twitter) ============
+       TODO(user): once the site is live, replace https://YOUR-SITE-URL/ below
+       with your real address so WhatsApp can find the preview image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Setu · Sri Sri University">
+  <meta property="og:title" content="Setu — Be the bridge between classroom and career">
+  <meta property="og:description" content="Guide an SSU student. One hour a month. A lifetime of impact.">
+  <meta property="og:url" content="https://YOUR-SITE-URL/">
+  <meta property="og:image" content="https://YOUR-SITE-URL/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sri Sri University's stepped building at dusk with a full moon, and the words: Setu — Be the bridge between classroom and career.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Setu — Be the bridge between classroom and career">
+  <meta name="twitter:description" content="Guide an SSU student. One hour a month. A lifetime of impact.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/assets/og-image.jpg">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/og-image.jpg">
+
+  <!-- Fonts: Cormorant Garamond (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+
+  <!-- Start downloading the hero photo immediately -->
+  <link rel="preload" as="image" href="assets/ssu-building.webp" type="image/webp">
+
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#why">Skip to content</a>
+
+<!-- =====================================================================
+     HERO — the SSU building at dusk
+     ===================================================================== -->
+<header class="hero" id="top">
+  <div class="hero__media" data-parallax="hero">
+    <picture>
+      <source srcset="assets/ssu-building.webp" type="image/webp">
+      <img class="hero__img" src="assets/ssu-building.jpg" width="724" height="1024"
+           alt="Sri Sri University's stepped, pyramid-shaped building at dusk, a full moon rising behind its dome, lit palms around a glowing forecourt"
+           fetchpriority="high" decoding="async">
+    </picture>
+    <div class="hero__moon-glow" aria-hidden="true"></div>
+  </div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+
+  <div class="hero__top">
+    <img class="logo" src="assets/ssu-logo.png" width="520" height="182" alt="Sri Sri University">
+  </div>
+
+  <div class="hero__content">
+    <p class="eyebrow">An initiative of Sri Sri University</p>
+    <h1 class="hero__title words">Setu</h1>
+    <p class="hero__sub words">Be the bridge between classroom and career.</p>
+    <p class="hero__line fade-late">Guide an SSU student. One hour a month. A lifetime of&nbsp;impact.</p>
+
+    <div class="hero__actions fade-late">
+      <button type="button" class="btn btn--gold btn--glow" data-open-form>I'd love to be a mentor <span aria-hidden="true">🙏</span></button>
+      <button type="button" class="btn btn--ghost" data-open-share>Pass it on to someone perfect</button>
+    </div>
+
+    <!-- Live counter: stays hidden unless the Google Sheet reports 10 or more mentors -->
+    <p class="counter" id="counter" hidden>
+      <span aria-hidden="true">✨</span> <strong class="counter__num" id="counterNum">0</strong> mentors have joined Setu
+    </p>
+  </div>
+
+  <a class="scroll-cue" href="#why" aria-label="Scroll down to learn more">
+    <span class="scroll-cue__line" aria-hidden="true"></span>
+  </a>
+</header>
+
+<main>
+
+  <!-- ============ WHY YOU ============ -->
+  <section class="why section--dark" id="why" tabindex="-1">
+    <p class="why__quote reveal">Remember the one person who guided you early on? <em>Be that person for someone.</em></p>
+  </section>
+
+  <!-- ============ HOW YOU CAN HELP ============ -->
+  <section class="help section--cream" aria-labelledby="help-title">
+    <div class="wrap">
+      <p class="label reveal">Ways to give</p>
+      <h2 class="heading rule reveal" id="help-title">How you can help</h2>
+
+      <ul class="cards cards--help" data-stagger>
+        <li class="card reveal">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="18" y="5" width="12" height="20" rx="6" class="i-fill"/>
+            <rect x="18" y="5" width="12" height="20" rx="6"/>
+            <path d="M12 21a12 12 0 0 0 24 0M24 33v7M17 40h14"/>
+            <path d="M39 11q3 5 0 10M42.5 8q5 8 0 16" class="i-gold"/>
+          </svg>
+          <h3>Career talks</h3>
+        </li>
+        <li class="card reveal">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M10 5h18l8 8v29H10z"/>
+            <path d="M28 5v8h8M15 20h14M15 26h14M15 32h7"/>
+            <circle cx="34" cy="36" r="7.5" class="i-fill-solid"/>
+            <path d="M30.5 36.2l2.4 2.4 4.6-5" class="i-cream"/>
+          </svg>
+          <h3>Mock interviews &amp; resume reviews</h3>
+        </li>
+        <li class="card reveal">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M24 7a11 11 0 0 1 7 19.5c-1.6 1.4-2 2.6-2 4.5H19c0-1.9-.4-3.1-2-4.5A11 11 0 0 1 24 7z" class="i-fill"/>
+            <path d="M24 7a11 11 0 0 1 7 19.5c-1.6 1.4-2 2.6-2 4.5H19c0-1.9-.4-3.1-2-4.5A11 11 0 0 1 24 7z"/>
+            <path d="M19.5 36h9M21 41h6"/>
+            <path d="M24 1.5v1.5M9 9l1.5 1.5M39 9l-1.5 1.5M4 20h2M42 20h2" class="i-gold"/>
+          </svg>
+          <h3>Guiding student projects</h3>
+        </li>
+        <li class="card reveal">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="5" y="15" width="38" height="25" rx="4"/>
+            <path d="M18 15v-4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M5 26h38"/>
+            <rect x="20.5" y="22.5" width="7" height="7" rx="1.5" class="i-fill-solid"/>
+          </svg>
+          <h3>Internships at your company</h3>
+        </li>
+        <li class="card reveal">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="15" cy="15" r="5.5"/>
+            <circle cx="33" cy="15" r="5.5" class="i-fill-solid"/>
+            <path d="M5 38a10 10 0 0 1 20 0M23 38a10 10 0 0 1 20 0"/>
+            <path d="M20 27.5q4-3 8 0" class="i-gold"/>
+          </svg>
+          <h3>One-on-one mentoring</h3>
+        </li>
+      </ul>
+
+      <p class="caption reveal">Choose what suits you. Even one is plenty.</p>
+    </div>
+  </section>
+
+  <!-- ============ PHOTO DIVIDER (the building recurs) ============ -->
+  <div class="band band--divider" aria-hidden="true">
+    <img class="band__img" data-parallax="band" src="assets/ssu-building.jpg" alt="" loading="lazy" decoding="async" width="724" height="1024">
+  </div>
+
+  <!-- ============ BRIDGE MOTIF ============ -->
+  <section class="bridge section--dark" aria-labelledby="bridge-line">
+    <svg class="bridge__svg" viewBox="0 0 600 210" role="img" aria-label="A hand-drawn bridge arching over water">
+      <circle class="draw draw--moon" cx="470" cy="42" r="16" pathLength="1"/>
+      <path class="draw" pathLength="1" d="M20 150H580"/>
+      <path class="draw draw--arch" pathLength="1" d="M60 150Q300-10 540 150"/>
+      <path class="draw draw--thin" pathLength="1"
+            d="M120 150V115M160 150V97M200 150V84M240 150V75M280 150V71M320 150V71M360 150V75M400 150V84M440 150V97M480 150V115"/>
+      <path class="draw" pathLength="1" d="M52 186V122h16v64M532 186V122h16v64"/>
+      <path class="draw draw--water" pathLength="1" d="M30 196q15-6 30 0t30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0 30 0"/>
+    </svg>
+    <p class="bridge__line reveal" id="bridge-line"><em>Setu</em> means bridge. You are the bridge.</p>
+  </section>
+
+  <!-- ============ WHAT YOU RECEIVE ============ -->
+  <section class="receive section--cream" aria-labelledby="receive-title">
+    <div class="wrap">
+      <p class="label reveal">With gratitude</p>
+      <h2 class="heading rule reveal" id="receive-title">What you receive</h2>
+
+      <ul class="cards cards--receive" data-stagger>
+        <li class="card card--row reveal">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="4" y="8" width="36" height="26" rx="3"/>
+            <path d="M10 16h24M10 22h16"/>
+            <circle cx="36" cy="32" r="6.5" class="i-fill-solid"/>
+            <path d="M32.5 37.5L31 45l5-2.5 5 2.5-1.5-7.5" class="i-gold"/>
+          </svg>
+          <h3>Certificate from SSU</h3>
+        </li>
+        <li class="card card--row reveal">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="30" cy="9" r="4" class="i-fill-solid"/>
+            <path d="M6 42h36M12 42V28h24v14M15 28l3-6h12l3 6M19 22l5-9 5 9"/>
+            <path d="M22 42v-7h4v7" class="i-gold"/>
+          </svg>
+          <h3>Invitation to the annual Setu Mentor Meet on campus</h3>
+        </li>
+        <li class="card card--row reveal">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="21" cy="16" r="7"/>
+            <path d="M7 42a14 14 0 0 1 28 0"/>
+            <path d="M38 6l1.8 3.8 4.2.6-3 2.9.7 4.1-3.7-2-3.7 2 .7-4.1-3-2.9 4.2-.6z" class="i-fill-solid"/>
+          </svg>
+          <h3>First look at talented interns for your team</h3>
+        </li>
+        <li class="card card--row reveal">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="4" y="8" width="40" height="32" rx="4"/>
+            <path d="M4 16h40"/>
+            <path d="M24 21l2.3 4.7 5.2.8-3.8 3.6.9 5.1-4.6-2.4-4.6 2.4.9-5.1-3.8-3.6 5.2-.8z" class="i-fill-solid"/>
+          </svg>
+          <h3>Recognition on SSU's website <span class="muted">(with your consent)</span></h3>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CALL TO ACTION ============ -->
+  <section class="band band--cta" aria-labelledby="cta-title">
+    <img class="band__img" data-parallax="band" src="assets/ssu-building.jpg" alt="" loading="lazy" decoding="async" width="724" height="1024">
+    <div class="band__inner">
+      <h2 class="cta__title reveal" id="cta-title">One hour a month.<br>A bridge for a lifetime.</h2>
+      <button type="button" class="btn btn--gold btn--glow reveal" data-open-form>Become a mentor</button>
+      <div class="share-row reveal" data-share-row>
+        <p class="share-row__label">Or pass it on</p>
+        <!-- buttons are filled in by app.js (see renderShareRows) -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer__brand"><span class="serif">Setu</span> · An initiative of Sri Sri University, Cuttack, Odisha</p>
+    <p><a class="footer__mail" data-contact-email href="mailto:setu@srisriuniversity.edu.in">setu@srisriuniversity.edu.in</a></p>
+    <p class="footer__privacy">
+      <strong>Your privacy.</strong> We collect your name, work details and contact information only to run the Setu mentorship programme, and never share them outside SSU without your permission.
+      To have your details removed, write to <a data-contact-email href="mailto:setu@srisriuniversity.edu.in">setu@srisriuniversity.edu.in</a>.
+    </p>
+  </div>
+</footer>
+
+<!-- =====================================================================
+     SHARE SHEET (opened by "Pass it on to someone perfect")
+     ===================================================================== -->
+<div class="sheet" id="shareSheet" role="dialog" aria-modal="true" aria-labelledby="shareSheetTitle" hidden>
+  <div class="sheet__backdrop" data-close-sheet></div>
+  <div class="sheet__panel">
+    <button type="button" class="icon-btn sheet__close" data-close-sheet aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <h2 class="sheet__title" id="shareSheetTitle">Know someone perfect?</h2>
+    <p class="sheet__text">Send them the invitation — they'll fill it in themselves.</p>
+    <div class="share-row" data-share-row></div>
+  </div>
+</div>
+
+<!-- =====================================================================
+     THE FORM — full-screen overlay, one question per screen.
+     The questions themselves live in app.js (QUESTIONS) so wording is easy to change.
+     ===================================================================== -->
+<div class="form-overlay" id="formOverlay" role="dialog" aria-modal="true" aria-labelledby="formTitle" hidden>
+  <div class="form-overlay__bg" aria-hidden="true"></div>
+
+  <div class="form-top">
+    <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+    <div class="form-top__row">
+      <p class="form-top__milestone" id="milestone"></p>
+      <button type="button" class="icon-btn icon-btn--light" id="closeForm" aria-label="Close the form (your answers are saved)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <h2 class="visually-hidden" id="formTitle">Become a Setu mentor</h2>
+  <p class="visually-hidden" aria-live="polite" id="stepAnnouncer"></p>
+
+  <form class="form" id="mentorForm" novalidate>
+    <!-- Honeypot: invisible to people, bots fill it in. Leave empty. -->
+    <div class="hp" aria-hidden="true">
+      <label for="website">Website</label>
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="steps" id="steps"><!-- filled by app.js --></div>
+
+    <div class="form-nav" id="formNav">
+      <button type="button" class="btn btn--text" id="backBtn">← Back</button>
+      <button type="button" class="btn btn--gold" id="nextBtn">Next →</button>
+    </div>
+    <p class="form-hint" id="enterHint">press <kbd>Enter ↵</kbd></p>
+  </form>
+
+  <!-- Thank-you screen -->
+  <section class="thanks" id="thanks" hidden aria-labelledby="thanksTitle" tabindex="-1">
+    <canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+    <div class="thanks__inner">
+      <svg class="thanks__bridge" viewBox="0 0 120 50" aria-hidden="true">
+        <path d="M6 40Q60 0 114 40M2 40h116M30 40V24M60 40V19M90 40V24"/>
+      </svg>
+      <h2 class="thanks__title" id="thanksTitle">Welcome to the Setu family, <span data-first-name>friend</span>! <span aria-hidden="true">🙏</span></h2>
+      <p class="thanks__text">You've just become someone's bridge. Our team will reach out soon.</p>
+      <p class="demo-note" id="demoNote" hidden>Demo mode: <code>SCRIPT_URL</code> isn't set in app.js yet, so this answer was <strong>not</strong> saved to the Google Sheet.</p>
+
+      <figure class="badge">
+        <img id="badgeImg" alt="Your Setu Mentor badge" width="1080" height="1080">
+        <figcaption class="visually-hidden">A square badge with the SSU building at dusk, a gold bridge and your name.</figcaption>
+      </figure>
+      <div class="badge__actions">
+        <a class="btn btn--gold" id="downloadBadge" download="setu-mentor-badge.png" href="#">Download badge</a>
+        <button type="button" class="btn btn--ghost" id="shareBadge">Share</button>
+      </div>
+
+      <div class="thanks__share">
+        <p class="share-row__label">Know another professional who'd love this?</p>
+        <div class="share-row" data-share-row></div>
+      </div>
+      <button type="button" class="btn btn--text btn--text-light" data-close-form>Back to the page</button>
+    </div>
+  </section>
+</div>
+
+<!-- Small "Copied! ✓" style notices -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <p class="noscript">Please enable JavaScript to fill in the Setu mentor form.</p>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Setu favicon: a gold bridge arch under a full moon, on twilight -->
+  <rect width="64" height="64" rx="14" fill="#1B2A4A"/>
+  <circle cx="44" cy="17" r="7" fill="#FDF6EC"/>
+  <path d="M8 44 Q32 14 56 44" fill="none" stroke="#E9B44C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M6 44 H58" stroke="#D98E6A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M20 33 V44 M32 29 V44 M44 33 V44" stroke="#E9B44C" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M10 52 H54" stroke="#33456E" stroke-width="3" stroke-linecap="round"/>
+</svg>
