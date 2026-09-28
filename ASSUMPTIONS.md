@@ -58,7 +58,7 @@ Every decision I made where the brief was open, why, and how to change it.
 
 1. `SCRIPT_URL` and `PAGE_URL` in `app.js` (SETUP.md, parts 2–3)
 2. `ADMIN_EMAIL` and `SITE_URL` in `Code.gs`
-3. Your live address in the 4 `YOUR-SITE-URL` spots in `index.html` (link previews)
+3. ~~Your live address in `index.html` (link previews)~~ — done: https://setu-omega-nine.vercel.app/
 4. Confirm `setu@srisriuniversity.edu.in` exists, or change it
 5. Optional: a higher-resolution building photo
 

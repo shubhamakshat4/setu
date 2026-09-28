@@ -8,7 +8,7 @@
 // ⚙️ SETTINGS — edit these three lines
 const ADMIN_EMAIL = 'TODO(user)@example.com';   // TODO(user): your email — gets a note for each new mentor
 const SEND_EMAILS = true;                        // false = no emails at all (to mentors or to you)
-const SITE_URL    = 'https://YOUR-SITE-URL/';    // TODO(user): your live page address, ending in "/"
+const SITE_URL    = 'https://setu-omega-nine.vercel.app/';   // your live page address, ending in "/"
 
 // Internal settings (normally leave alone)
 const SHEET_NAME = 'Responses';

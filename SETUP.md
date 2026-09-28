@@ -109,19 +109,19 @@ Add `?ref=something` to the end of the link you share. Whatever you put there is
 
 | Where you're sharing | Link to send |
 |---|---|
-| Bhubaneswar teachers group | `https://ssu-setu.netlify.app/?ref=bbsr-teachers` |
-| Cuttack teachers group | `https://ssu-setu.netlify.app/?ref=cuttack-teachers` |
-| Bengaluru volunteers group | `https://ssu-setu.netlify.app/?ref=blr-volunteers` |
-| Delhi NCR teachers | `https://ssu-setu.netlify.app/?ref=ncr-teachers` |
-| Mumbai / Pune teachers | `https://ssu-setu.netlify.app/?ref=mum-pune-teachers` |
-| LinkedIn post | `https://ssu-setu.netlify.app/?ref=linkedin` |
-| Email newsletter | `https://ssu-setu.netlify.app/?ref=newsletter` |
-| Your personal WhatsApp | `https://ssu-setu.netlify.app/?ref=prof-yourname` |
+| Bhubaneswar teachers group | `https://setu-omega-nine.vercel.app/?ref=bbsr-teachers` |
+| Cuttack teachers group | `https://setu-omega-nine.vercel.app/?ref=cuttack-teachers` |
+| Bengaluru volunteers group | `https://setu-omega-nine.vercel.app/?ref=blr-volunteers` |
+| Delhi NCR teachers | `https://setu-omega-nine.vercel.app/?ref=ncr-teachers` |
+| Mumbai / Pune teachers | `https://setu-omega-nine.vercel.app/?ref=mum-pune-teachers` |
+| LinkedIn post | `https://setu-omega-nine.vercel.app/?ref=linkedin` |
+| Email newsletter | `https://setu-omega-nine.vercel.app/?ref=newsletter` |
+| Your personal WhatsApp | `https://setu-omega-nine.vercel.app/?ref=prof-yourname` |
 
 Rules: use letters, numbers and dashes only; no spaces. Keep it short.
 After someone signs up, the share buttons on their thank-you screen automatically use `?ref=<their first name>`, so you can also see who spread the word.
 
-Tip: add `#join` to open the form straight away, e.g. `https://ssu-setu.netlify.app/?ref=bbsr-teachers#join`.
+Tip: add `#join` to open the form straight away, e.g. `https://setu-omega-nine.vercel.app/?ref=bbsr-teachers#join`.
 
 ---
 
