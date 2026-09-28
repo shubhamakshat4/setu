@@ -16,7 +16,7 @@ const CONFIG = {
   PAGE_URL: '',
 
   // TODO(user): confirm the programme's contact address.
-  CONTACT_EMAIL: 'setu@srisriuniversity.edu.in',
+  CONTACT_EMAIL: 'akshat.s@srisriuniversity.edu.in',
 
   // Hide the live counter until at least this many mentors have joined.
   COUNTER_MIN: 10,
