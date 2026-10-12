@@ -1,13 +1,17 @@
 /* =====================================================================
    SETU — Google Apps Script backend
    ---------------------------------------------------------------------
-   Paste this whole file into Extensions → Apps Script of your Google Sheet.
+   This project has TWO files — paste both into Extensions → Apps Script:
+     • Code.gs   — this file: the public sign-up form + settings
+     • Portal.gs — the mentor & admin dashboards (login, students, meetings…)
    Full step-by-step instructions: SETUP.md
    ===================================================================== */
 
-// ⚙️ SETTINGS — edit these three lines
-const ADMIN_EMAIL = 'TODO(user)@example.com';   // TODO(user): your email — gets a note for each new mentor
-const SEND_EMAILS = true;                        // false = no emails at all (to mentors or to you)
+// ⚙️ SETTINGS — edit these lines
+const ADMIN_EMAIL = 'akshat.s@srisriuniversity.edu.in';   // gets a note for each new mentor sign-up
+// Everyone who may open the ADMIN dashboard (lower-case, comma-separated)
+const ADMIN_EMAILS = ['akshat.s@srisriuniversity.edu.in'];
+const SEND_EMAILS = true;                        // false = no welcome / notification emails for sign-ups
 const SITE_URL    = 'https://setu-omega-nine.vercel.app/';   // your live page address, ending in "/"
 
 // Internal settings (normally leave alone)
@@ -17,6 +21,7 @@ const HEADERS = [
   'Timestamp (IST)', 'Full Name', 'Company', 'Designation', 'Experience', 'Phone', 'Email',
   'Domains', 'Ways to Help', 'Time Commitment', 'AoL Connection', 'City', 'LinkedIn',
   'Heard From', 'Message', 'Consent', 'Source Ref', 'User Agent', 'Last Updated',
+  'Status',   // Pending → Approved / Rejected / Inactive — set from the admin dashboard
 ];
 // Payload field → column, in the same order as HEADERS (Timestamp and Last Updated are added by the script)
 const FIELDS = [
@@ -33,6 +38,7 @@ const MAX_LEN = {
 const EXPERIENCE_VALUES = ['<3', '3-5', '5-10', '10-20', '20+'];
 const PHONE_COL = HEADERS.indexOf('Phone') + 1;
 const EMAIL_COL = HEADERS.indexOf('Email') + 1;
+const STATUS_COL = HEADERS.indexOf('Status') + 1;
 
 /* ---------------------------------------------------------------------
    POST — a new form submission
@@ -41,6 +47,9 @@ const EMAIL_COL = HEADERS.indexOf('Email') + 1;
 function doPost(e) {
   try {
     const data = JSON.parse((e && e.postData && e.postData.contents) || '{}');
+
+    // Dashboard requests (login, meetings, students…) are handled in Portal.gs
+    if (data.action) return json_(handleAction_(data));
 
     // Honeypot: a real person never fills the hidden "website" field. Pretend success, save nothing.
     if (data.website) return json_({ status: 'success' });
@@ -140,7 +149,7 @@ function writeRow_(c) {
 
   const row = last + 1;
   sheet.getRange(row, PHONE_COL).setNumberFormat('@');   // keep "+91…" as readable text
-  sheet.getRange(row, 1, 1, HEADERS.length).setValues([[now].concat(values).concat([''])]);
+  sheet.getRange(row, 1, 1, HEADERS.length).setValues([[now].concat(values).concat(['', 'Pending'])]);
   return true;
 }
 
@@ -150,8 +159,10 @@ function getSheet_() {
   let sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) sheet = ss.insertSheet(SHEET_NAME);
   const first = sheet.getRange(1, 1, 1, HEADERS.length).getValues()[0];
-  if (first.join('') === '' || first[0] !== HEADERS[0]) {
-    if (first.join('') !== '') sheet.insertRowBefore(1);
+  if (first.join('|') !== HEADERS.join('|')) {
+    // Row 1 holds data (not headers)? Make room. Otherwise just refresh the header row —
+    // this also adds new columns such as "Status" to an older sheet.
+    if (first.join('') !== '' && first[0] !== HEADERS[0]) sheet.insertRowBefore(1);
     sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS])
       .setFontWeight('bold').setBackground('#1B2A4A').setFontColor('#FDF6EC');
     sheet.setFrozenRows(1);
@@ -190,7 +201,8 @@ function sendEmails_(c, isNew) {
           'Phone: ' + c.phone, 'Email: ' + c.email,
           'Ways to help: ' + (c.waysToHelp || '—'), 'Time: ' + (c.timeCommitment || '—'),
           'Heard from: ' + (c.heardFrom || '—') + (c.sourceRef ? '  [ref=' + c.sourceRef + ']' : ''),
-          '', 'Sheet: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl(),
+          '', 'Approve in the admin dashboard: ' + SITE_URL + 'portal.html#/admin/mentors',
+          'Sheet: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl(),
         ].join('\n'),
       });
     } catch (err) { console.error('Admin email failed: ' + err); }
@@ -209,7 +221,8 @@ function welcomeHtml_(first) {
     '<h1 style="margin:0 0 12px;font-size:28px;color:#1B2A4A;font-weight:normal">Welcome to the Setu family, ' + esc(first) + '! 🙏</h1>' +
     '<p style="font-size:17px;line-height:1.6;margin:0 0 16px">You\'ve just become someone\'s bridge between classroom and career.</p>' +
     '<p style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6;margin:0 0 16px;color:#4a3b31">' +
-    '<strong style="color:#B85C38">What happens next:</strong> our team at Sri Sri University will reach out soon to find a way of mentoring that suits your time and interests.</p>' +
+    '<strong style="color:#B85C38">What happens next:</strong> our team at Sri Sri University will reach out soon to find a way of mentoring that suits your time and interests. ' +
+    'Once your profile is approved, you\'ll receive a link to your own Setu mentor dashboard.</p>' +
     '<p style="font-family:Arial,sans-serif;font-size:13px;color:#7a6a5e;margin:24px 0 0;border-top:1px solid #E8D4B0;padding-top:14px">' +
     'You received this because you signed up as a Setu mentor. To have your details removed, simply reply to this email.</p>' +
     '</td></tr></table></div>';
@@ -225,6 +238,7 @@ function json_(obj) {
    --------------------------------------------------------------------- */
 function setup() {
   getSheet_();
+  setupPortal_();                                      // creates Students, Meetings, … tabs (Portal.gs)
   if (SEND_EMAILS) MailApp.getRemainingDailyQuota();   // triggers the email permission prompt
   console.log('Setu is ready. Responses tab: OK. Emails left today: ' + MailApp.getRemainingDailyQuota());
 }

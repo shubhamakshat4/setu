@@ -6,17 +6,12 @@
 /* =====================================================================
    ⚙️  CONFIG — the only part you normally need to edit
    ===================================================================== */
+// The three main settings (script URL, page address, contact email) live in config.js
+const SITE = window.SETU_CONFIG || {};
 const CONFIG = {
-  // TODO(user): paste your Apps Script web-app URL here (see SETUP.md, step 3).
-  // While this still contains "PASTE_", the form runs in DEMO MODE and saves nothing.
-  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwYso2kL3gX3Y4yZSKrztJc5eSuVhxycewE8TXivOvAvXa5C_eBLZ2usBUJU3fDY7IgbQ/exec',
-
-  // TODO(user): the public address of this page, e.g. 'https://ssu-setu.netlify.app/'
-  // Leave empty ('') to use whatever address the page is opened from.
-  PAGE_URL: 'https://setu-omega-nine.vercel.app/',
-
-  // TODO(user): confirm the programme's contact address.
-  CONTACT_EMAIL: 'akshat.s@srisriuniversity.edu.in',
+  SCRIPT_URL: SITE.SCRIPT_URL || 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE',   // while unset → DEMO MODE, nothing saved
+  PAGE_URL: SITE.PAGE_URL || '',                                            // '' = use the address the page was opened from
+  CONTACT_EMAIL: SITE.CONTACT_EMAIL || 'setu@srisriuniversity.edu.in',
 
   // Hide the live counter until at least this many mentors have joined.
   COUNTER_MIN: 10,

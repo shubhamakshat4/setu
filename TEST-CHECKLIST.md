@@ -61,3 +61,32 @@ Open the **live** link by tapping it inside a WhatsApp chat, the way your audien
 - [ ] Phone setting "Reduce motion" (iPhone: Settings → Accessibility → Motion; Android: Remove animations) → no zooming, parallax or confetti; content simply fades
 - [ ] On a computer, you can complete the whole form with only the keyboard (Tab, Space, Enter); focus rings are visible
 - [ ] With text size set to "Large" on the phone, nothing overlaps
+
+---
+
+# Portal checklist (after the upgrade)
+
+## Admin
+- [ ] `/portal.html` → your admin email → code arrives → you land on **Setu at a glance**
+- [ ] An email **not** on the list gets "If this email belongs…" and **no** code
+- [ ] Mentors tab: approve a test mentor → they receive "You're approved" with a working dashboard link
+- [ ] Students tab: **Bulk import** 3 test students (paste from Sheets) → they appear; importing again doesn't duplicate them
+- [ ] Tick students → choose the mentor → **Assign** → mentor gets "new mentees assigned" email
+- [ ] Overview shows the department chart and the mentor activity table
+- [ ] **+ Schedule meeting** for a mentor → students receive the email **and** a calendar invite with a `meet.google.com` link
+- [ ] Mentors → **Open dashboard** shows the gold "Admin view" banner; **Back to admin** returns
+- [ ] Meetings report: filters work; **Export CSV** opens correctly in Excel/Sheets
+
+## Mentor (on a phone)
+- [ ] Sign in with the approved mentor email → "Namaste, [name] 🙏" with mentees listed
+- [ ] Schedule a meeting → every invited student gets the email; the Meet link opens
+- [ ] Reschedule → students get "Rescheduled"; Cancel → students get "Cancelled", calendar event disappears
+- [ ] After a meeting: write notes, toggle attendance, tap stars, write individual feedback → **Save report** → meeting shows Completed
+- [ ] Mentee page: add and delete a remark; feedback history and attendance % look right
+- [ ] Projects: create one with students → add a progress report at 40% → progress bar updates
+- [ ] Bottom menu is easy to tap; nothing scrolls sideways
+- [ ] Sign out, then sign in again works
+
+## Data
+- [ ] Each action shows up in the right Sheet tab (Students, Meetings, Feedback, Remarks, Projects, ProjectUpdates)
+- [ ] Delete test rows before launch (keep the header rows)

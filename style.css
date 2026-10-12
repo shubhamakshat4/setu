@@ -166,13 +166,21 @@ html:not(.js) .hero__img { opacity: 1; }
 
 .hero__top {
   position: absolute; top: max(16px, env(safe-area-inset-top)); left: var(--gutter); right: var(--gutter);
-  display: flex; align-items: center;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
 }
+/* Official SSU logo — shown in its original colours on white, as on srisriuniversity.edu.in */
 .logo {
-  width: 150px; height: auto; padding: 8px 12px;
-  background: rgba(253,246,236,.92); border-radius: 14px;
-  box-shadow: 0 6px 20px -8px rgba(0,0,0,.4);
+  width: 168px; height: auto; padding: 8px 12px;
+  background: #fff; border-radius: 12px;
+  box-shadow: 0 6px 20px -8px rgba(0,0,0,.45);
 }
+.login-link {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px; border-radius: 999px;
+  color: #fff; font-size: .9rem; font-weight: 500; text-decoration: none;
+  border: 1px solid rgba(255,255,255,.55); background: rgba(27,42,74,.35);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.login-link:hover { background: rgba(27,42,74,.6); }
 
 .hero__content {
   position: relative; text-align: center;
@@ -336,6 +344,7 @@ html:not(.js) .draw { stroke-dashoffset: 0; }
 .footer .wrap { display: grid; gap: 14px; max-width: 720px; }
 .footer__brand .serif { font-size: 1.5rem; color: var(--gold); }
 .footer__mail { color: var(--gold); font-weight: 500; }
+.footer__portal { color: var(--sandstone); font-weight: 500; }
 .footer__privacy { font-size: .82rem; line-height: 1.6; opacity: .8; }
 .footer__privacy a { color: var(--sandstone); }
 
@@ -501,7 +510,7 @@ textarea.input { min-height: 140px; resize: vertical; line-height: 1.5; }
   .cards--help { grid-template-columns: repeat(3, 1fr); }
   .cards--help .card:last-child { grid-column: auto; }
   .cards--help .card:nth-child(4) { grid-column: 1 / span 1; }
-  .logo { width: 180px; }
+  .logo { width: 220px; }
 }
 @media (min-width: 600px) and (max-width: 899px) {
   /* 3 + 2 layout, second row centred */

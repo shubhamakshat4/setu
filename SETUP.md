@@ -7,11 +7,46 @@ What's in this folder:
 
 | File | What it is |
 |---|---|
-| `index.html` | The page itself |
-| `style.css` | Colours, fonts, layout. **All colours are at the very top.** |
-| `app.js` | How the page behaves. **The settings block is at the very top.** |
-| `assets/` | Photos, logo, preview image, icon |
-| `apps-script/Code.gs` | The small program that saves answers into your Google Sheet |
+| `config.js` | **The 3 main settings** — script URL, site address, contact email |
+| `index.html`, `style.css`, `app.js` | The public sign-up page |
+| `portal.html`, `portal.css`, `portal.js` | The mentor & admin dashboards (`/portal.html`) |
+| `assets/` | Photos, official SSU logo, preview image, icon |
+| `apps-script/Code.gs` | Google Sheet program, part 1: sign-up form + settings |
+| `apps-script/Portal.gs` | Google Sheet program, part 2: dashboards, meetings, Meet links, emails |
+
+---
+
+## ⭐ Upgrading to the mentor & admin portal (Setu is already live)
+
+Do this once. About 15 minutes.
+
+**A. Update the Apps Script (in your Google Sheet → Extensions → Apps Script)**
+1. Click **Code.gs** on the left. Select all, delete, and paste the new `apps-script/Code.gs`.
+   At the top, check `ADMIN_EMAIL`, `ADMIN_EMAILS` (everyone who may open the admin dashboard) and `SITE_URL`.
+2. Click the **+** next to **Files** → **Script** → name it `Portal` (it becomes `Portal.gs`). Paste in `apps-script/Portal.gs`.
+3. **Switch on Google Meet links:** on the left, click the **+** next to **Services** → choose **Google Calendar API** → **Add**.
+   (It must appear as `Calendar` under Services.)
+4. Save (💾). Choose **`setup`** in the function dropdown → **▶ Run** → accept the new permissions (Calendar + email).
+   Your Sheet now has new tabs: **Students, Meetings, Feedback, Remarks, Projects, ProjectUpdates**, and a **Status** column in Responses.
+5. **Deploy → Manage deployments → ✏️ → Version: New version → Deploy.** (Same URL — nothing to change on the site.)
+
+**B. Update the website**
+6. Upload/push all the new files (including `config.js`, `portal.html`, `portal.css`, `portal.js`, and the new `assets/ssu-logo.png`). Vercel redeploys automatically after a GitHub push.
+
+**C. First use**
+7. Open **https://setu-omega-nine.vercel.app/portal.html** → enter an email from `ADMIN_EMAILS` → type the 6-digit code you receive.
+8. **Mentors** tab → approve mentors (each gets an email with a dashboard link).
+   Existing sign-ups start as **Pending** — nobody gets access until you approve them.
+9. **Students** tab → **Bulk import** (paste from Excel/Sheets: `Name, Email, Roll No, Department, Programme, Year, Phone`) → tick students → choose a mentor → **Assign**. The mentor is emailed.
+10. Mentors sign in at the same address with their own email and can now schedule meetings — every assigned student gets an email (and a Google Calendar invite) with the Meet link.
+
+### How the portal works — at a glance
+| Who | Can do |
+|---|---|
+| **Mentor** (approved) | See their mentees · schedule / reschedule / cancel meetings (Meet link auto-created, students emailed) · after each meeting write notes + next steps and give each mentee attendance, a 1–5 engagement rating and individual feedback · keep dated remarks on each mentee · create projects and post progress reports |
+| **Admin** (in `ADMIN_EMAILS`) | Totals and students-by-department · approve / decline / deactivate mentors · add, import, edit and assign students · consolidated meetings report with filters and **Export CSV** · schedule a meeting for any mentor · open any mentor's dashboard and act on their behalf |
+
+Sign-in is by a one-time code sent to the person's email — no passwords. A login lasts 14 days on a device.
 
 ---
 
@@ -21,6 +56,7 @@ What's in this folder:
 2. Click **Blank spreadsheet** (the big "+").
 3. Click the title **"Untitled spreadsheet"** (top-left) and rename it, e.g. `Setu Mentors`.
 4. In the menu, click **Extensions → Apps Script**. A new tab opens with a code editor showing a file called `Code.gs`.
+   *(You'll also add a second file, `Portal.gs`, and the Google Calendar service — see "Upgrading to the portal" above, steps 2–3.)*
 5. In that editor, **select everything** (Ctrl+A / Cmd+A) and **delete** it.
 6. On your computer, open `apps-script/Code.gs` from this folder in Notepad (Windows) or TextEdit (Mac). Select all, copy, and **paste** it into the Apps Script editor.
 7. Near the top, change the three settings:
@@ -50,7 +86,7 @@ What's in this folder:
 18. Check it works: paste that URL into a new browser tab. You should see `{"count":0}`.
 
 ### Connect the page to it
-19. Open `app.js` in Notepad/TextEdit. At the very top, in the **CONFIG** block:
+19. Open `config.js` in Notepad/TextEdit:
     ```js
     SCRIPT_URL: 'https://script.google.com/macros/s/AKfy…/exec',   // paste from step 17
     PAGE_URL: '',                                                   // fill in after Part 3
@@ -76,13 +112,13 @@ Choose **one** of these. Netlify is the fastest.
 ### Option B — GitHub Pages
 1. Create a free account at **https://github.com** and sign in.
 2. Top-right **+** → **New repository**. Name: `setu`. Choose **Public**. Click **Create repository**.
-3. On the next page click **uploading an existing file**. Drag in `index.html`, `style.css`, `app.js` and the `assets` folder (you can skip `apps-script` and the `.md` files). Click **Commit changes**.
+3. On the next page click **uploading an existing file**. Drag in all the `.html`, `.css` and `.js` files (including `config.js`) and the `assets` folder (you can skip `apps-script` and the `.md` files). Click **Commit changes**.
 4. Go to **Settings → Pages**. Under **Branch** choose **main** and **/ (root)** → **Save**.
 5. Wait 1–2 minutes and refresh. Your address appears at the top: `https://YOUR-USERNAME.github.io/setu/`.
 6. **To update later:** open the repository → **Add file → Upload files** → drag in the changed files → **Commit changes**.
 
 ### After you have your address — three small edits
-1. `app.js` → `PAGE_URL: 'https://ssu-setu.netlify.app/'`
+1. `config.js` → `PAGE_URL: 'https://ssu-setu.netlify.app/'`
 2. `index.html` → find `https://YOUR-SITE-URL/` (it appears **4 times**, near the top) and replace each with your address. This makes the WhatsApp preview show the building photo.
 3. `apps-script/Code.gs` (in the Apps Script editor) → `SITE_URL` → your address, then **redeploy** (next section).
 
@@ -99,7 +135,7 @@ Whenever you edit code in the Apps Script editor, the live web app **does not ch
 3. **Version:** choose **New version**. Click **Deploy**.
 
 ✅ Same URL, new code.
-❌ Don't use **Deploy → New deployment** for updates — that creates a *different* URL and you'd have to change `SCRIPT_URL` in `app.js` again.
+❌ Don't use **Deploy → New deployment** for updates — that creates a *different* URL and you'd have to change `SCRIPT_URL` in `config.js` again.
 
 ---
 
@@ -156,7 +192,7 @@ See `TEST-CHECKLIST.md` for the full phone checklist.
 - "Execute as" must be **Me**.
 
 **The form says success but no rows appear**
-- Is the thank-you screen showing a yellow **Demo mode** note? Then `SCRIPT_URL` isn't set (or is mistyped) in the `app.js` that's *on the live site* — re-upload it.
+- Is the thank-you screen showing a yellow **Demo mode** note? Then `SCRIPT_URL` isn't set (or is mistyped) in the `config.js` that's *on the live site* — re-upload it.
 - Look at the right Google Sheet — the one you opened Apps Script from — and the **Responses** tab.
 - Apps Script editor → **Executions** (clock icon on the left) shows each submission and any error.
 - Submissions from the same email **update** the existing row instead of adding a new one.
@@ -175,3 +211,15 @@ See `TEST-CHECKLIST.md` for the full phone checklist.
 
 **I want to change a colour / wording**
 - Colours: top of `style.css`. Form questions: `QUESTIONS` in `app.js`. Page text: `index.html`. WhatsApp message: `SHARE_MESSAGE` in `app.js`.
+
+**Portal: "Couldn't create a Google Meet link"**
+- In Apps Script, **Services** must list **Calendar** (Google Calendar API). Add it, run `setup` once, then redeploy with **New version**.
+- Meanwhile mentors can open "Use my own meeting link instead" in the scheduling form and paste any Meet/Zoom link.
+- Meetings are created on the calendar of the Google account that owns the script; mentors and students are guests.
+
+**Portal: "I didn't get a login code"**
+- Only **approved** mentors and emails in `ADMIN_EMAILS` receive codes (others see the same message, for privacy). Approve the mentor in **Admin → Mentors**.
+- Check spam. Codes expire after 10 minutes; at most 5 codes per 15 minutes per email.
+
+**Portal: email limits**
+- Every meeting sends one email per invited student (plus Google's calendar invite). Free Gmail accounts can send ~100 script emails a day; Google Workspace (SSU) accounts ~1,500. Run the script from an SSU Workspace account if you can.
