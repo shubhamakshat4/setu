@@ -11,8 +11,7 @@ What's in this folder:
 | `index.html`, `style.css`, `app.js` | The public sign-up page |
 | `portal.html`, `portal.css`, `portal.js` | The mentor & admin dashboards (`/portal.html`) |
 | `assets/` | Photos, official SSU logo, preview image, icon |
-| `apps-script/Code.gs` | Google Sheet program, part 1: sign-up form + settings |
-| `apps-script/Portal.gs` | Google Sheet program, part 2: dashboards, meetings, Meet links, emails |
+| `apps-script/Code.gs` | **The whole Google Sheet program, in one file**: settings, sign-up form, portal, sample data |
 
 ---
 
@@ -21,9 +20,15 @@ What's in this folder:
 Do this once. About 15 minutes.
 
 **A. Update the Apps Script (in your Google Sheet → Extensions → Apps Script)**
-1. Click **Code.gs** on the left. Select all, delete, and paste the new `apps-script/Code.gs`.
+
+> ⚠️ The project must contain **only one file, `Code.gs`**, holding the *entire* new `apps-script/Code.gs`.
+> If you see a `Portal.gs` from an earlier attempt, delete it (⋮ next to it → **Delete**) — otherwise you'll get
+> "has already been declared" errors. If Code.gs is missing, the site shows **"Script function not found: doGet"**.
+
+1. Click **Code.gs** on the left. Select all (Ctrl+A), delete, and paste the **whole** new `apps-script/Code.gs`
+   (about 1,090 lines — scroll to the bottom to check it ends with `removeDemoData`).
    At the top, check `ADMIN_EMAIL`, `ADMIN_EMAILS` (everyone who may open the admin dashboard) and `SITE_URL`.
-2. Click the **+** next to **Files** → **Script** → name it `Portal` (it becomes `Portal.gs`). Paste in `apps-script/Portal.gs`.
+2. *(No second file needed any more.)*
 3. **Switch on Google Meet links:** on the left, click the **+** next to **Services** → choose **Google Calendar API** → **Add**.
    (It must appear as `Calendar` under Services.)
 4. Save (💾). Choose **`setup`** in the function dropdown → **▶ Run** → accept the new permissions (Calendar + email).
@@ -39,6 +44,14 @@ Do this once. About 15 minutes.
    Existing sign-ups start as **Pending** — nobody gets access until you approve them.
 9. **Students** tab → **Bulk import** (paste from Excel/Sheets: `Name, Email, Roll No, Department, Programme, Year, Phone`) → tick students → choose a mentor → **Assign**. The mentor is emailed.
 10. Mentors sign in at the same address with their own email and can now schedule meetings — every assigned student gets an email (and a Google Calendar invite) with the Meet link.
+
+### Sample data for testing (optional)
+1. In Apps Script, near the end of Code.gs, `DEMO_INBOX` is the inbox that receives every sample person's emails
+   (Gmail "plus addresses" like `you+setu-priya@gmail.com`). Change it if you like, then save.
+2. Choose **`seedDemoData`** in the function dropdown → **▶ Run**. It adds 5 mentors, 10 students, 7 meetings with reports,
+   remarks and 2 projects — **without sending any email**.
+3. Test with the accounts listed in `TEST-CASES.md`.
+4. Before launch: choose **`removeDemoData`** → **▶ Run**. Only sample rows are deleted; real data is untouched.
 
 ### How the portal works — at a glance
 | Who | Can do |
@@ -56,7 +69,7 @@ Sign-in is by a one-time code sent to the person's email — no passwords. A log
 2. Click **Blank spreadsheet** (the big "+").
 3. Click the title **"Untitled spreadsheet"** (top-left) and rename it, e.g. `Setu Mentors`.
 4. In the menu, click **Extensions → Apps Script**. A new tab opens with a code editor showing a file called `Code.gs`.
-   *(You'll also add a second file, `Portal.gs`, and the Google Calendar service — see "Upgrading to the portal" above, steps 2–3.)*
+   *(Also add the Google Calendar service — see "Upgrading to the portal" above, step 3.)*
 5. In that editor, **select everything** (Ctrl+A / Cmd+A) and **delete** it.
 6. On your computer, open `apps-script/Code.gs` from this folder in Notepad (Windows) or TextEdit (Mac). Select all, copy, and **paste** it into the Apps Script editor.
 7. Near the top, change the three settings:

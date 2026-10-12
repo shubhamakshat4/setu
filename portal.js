@@ -1,7 +1,7 @@
 /* =====================================================================
    SETU PORTAL — mentor & admin dashboards
    Plain JavaScript, no libraries. Talks to the Apps Script in
-   apps-script/Portal.gs. Settings come from config.js.
+   apps-script/Code.gs (portal section). Settings come from config.js.
    ===================================================================== */
 
 const CFG = window.SETU_CONFIG || {};
