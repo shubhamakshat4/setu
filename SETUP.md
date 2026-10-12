@@ -101,7 +101,7 @@ Sign-in is by a one-time code sent to the person's email — no passwords. A log
 ### Connect the page to it
 19. Open `config.js` in Notepad/TextEdit:
     ```js
-    SCRIPT_URL: 'https://script.google.com/macros/s/AKfy…/exec',   // paste from step 17
+    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycby_QOdKOadC5VlmD67rb_IGkLhIy1cwjR5s1_zMfMFz2ieidJgm2Dyh8jAElYLYgh-3TA/exec',   // paste from step 17
     PAGE_URL: '',                                                   // fill in after Part 3
     CONTACT_EMAIL: 'setu@srisriuniversity.edu.in',                  // the address people can write to
     ```

@@ -4,7 +4,7 @@
    ===================================================================== */
 window.SETU_CONFIG = {
   // Your Apps Script web-app URL (SETUP.md, part 2). Ends in /exec
-  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwYso2kL3gX3Y4yZSKrztJc5eSuVhxycewE8TXivOvAvXa5C_eBLZ2usBUJU3fDY7IgbQ/exec',
+  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycby_QOdKOadC5VlmD67rb_IGkLhIy1cwjR5s1_zMfMFz2ieidJgm2Dyh8jAElYLYgh-3TA/exec',
 
   // The public address of the site, ending in "/"
   PAGE_URL: 'https://setu-omega-nine.vercel.app/',

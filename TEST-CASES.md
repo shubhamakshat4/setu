@@ -12,7 +12,7 @@ Mark each row ✅ / ❌ and note anything odd in the last column.
 3. Function dropdown → **`setup`** → ▶ Run → allow permissions.
 4. Function dropdown → **`seedDemoData`** → ▶ Run. The log ends with the list of test accounts.
 5. **Deploy → Manage deployments → ✏️ → Version: New version → Deploy.**
-6. Open https://script.google.com/macros/s/AKfycbwYso2kL3gX3Y4yZSKrztJc5eSuVhxycewE8TXivOvAvXa5C_eBLZ2usBUJU3fDY7IgbQ/exec → you should see `{"count":5}` (or more if real people have signed up).
+6. Open https://script.google.com/macros/s/AKfycby_QOdKOadC5VlmD67rb_IGkLhIy1cwjR5s1_zMfMFz2ieidJgm2Dyh8jAElYLYgh-3TA/exec → you should see `{"count":5}` (or more if real people have signed up).
 
 ## Test accounts
 
